@@ -1,26 +1,89 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vibrant-rps-arena</title>
-    <meta name="description" content="Lovable Generated Project" />
+    <title>Rock Paper Scissors</title>
+    <meta name="description" content="A fun, modern Rock Paper Scissors game" />
     <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="vibrant-rps-arena" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="container">
+      <header>
+        <h1>Rock Paper Scissors</h1>
+        <div class="score-board">
+          <div class="score">
+            <p>You</p>
+            <p id="user-score">0</p>
+          </div>
+          <div class="score">
+            <p>Computer</p>
+            <p id="computer-score">0</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="game-status">
+        <p id="status-message">Choose your move!</p>
+      </div>
+
+      <div class="game-area">
+        <div class="choices">
+          <div class="choice" data-choice="rock">
+            <div class="choice-icon">✊</div>
+            <span>Rock</span>
+          </div>
+          <div class="choice" data-choice="paper">
+            <div class="choice-icon">✋</div>
+            <span>Paper</span>
+          </div>
+          <div class="choice" data-choice="scissors">
+            <div class="choice-icon">✌️</div>
+            <span>Scissors</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="battle-area">
+        <div class="player-choice">
+          <h3>You</h3>
+          <div id="user-choice" class="battle-choice">?</div>
+        </div>
+        <div class="versus">VS</div>
+        <div class="computer-choice">
+          <h3>Computer</h3>
+          <div id="computer-choice" class="battle-choice">?</div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button id="reset-button">Reset Game</button>
+        <button id="rules-button">Rules</button>
+      </div>
+
+      <div id="rules-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Game Rules</h2>
+          <ul>
+            <li>Rock beats Scissors</li>
+            <li>Scissors beats Paper</li>
+            <li>Paper beats Rock</li>
+          </ul>
+          <p>First to 5 points wins the game!</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="confetti-container"></div>
+    <script src="src/game.js"></script>
   </body>
 </html>
